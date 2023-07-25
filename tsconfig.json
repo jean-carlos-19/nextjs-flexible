@@ -26,7 +26,9 @@
       "@/views": ["./src/views"],
       "@/atomic/element": ["./atomic/element"],
       "@/atomic/component": ["./atomic/component"],
-      "@/atomic/design": ["./atomic/design"]
+      "@/atomic/design": ["./atomic/design"],
+      "@/constant/*": ["./constant/*"],
+      "@/types/*": ["./types/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
