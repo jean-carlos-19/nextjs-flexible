@@ -3,19 +3,17 @@ import { Providers } from "@/types/component.types";
 import { getProviders } from "next-auth/react";
 import { useState, useCallback, useEffect } from "react";
 
-
 const useAuthProviders = () => {
-
   const [providers, setProviders] = useState<Providers | null>(null);
 
-  useEffect(()=>{
+  useEffect(() => {
     fecthProviders();
-  },[])
+  }, []);
 
-  const fecthProviders = useCallback(async()=>{
-      const rs = await getProviders();
-      setProviders(rs);
-  },[])
-  return { providers, setProviders }
-}
-export { useAuthProviders }
+  const fecthProviders = useCallback(async () => {
+    const rs = await getProviders();
+    setProviders(rs);
+  }, []);
+  return { providers, setProviders };
+};
+export { useAuthProviders };

@@ -1,3 +1,3 @@
-export {NavBar} from "./NavBar";
-export {Footer} from "./Footer";
-export {AuthProvides} from "./AuthProvides";
+export { NavBar } from "./NavBar";
+export { Footer } from "./Footer";
+export { AuthProvides } from "./AuthProvides";

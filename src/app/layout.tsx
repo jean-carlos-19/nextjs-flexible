@@ -1,6 +1,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Footer, NavBar } from "@/atomic/component";
+import { NextAuthProvider } from "./providers";
 
 export const metadata: Metadata = {
   title: "Flexibble",
@@ -14,10 +15,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={"relative"}>
-        <NavBar />
-        {children}
-        <Footer />
+      <body>
+        <NextAuthProvider>
+          <NavBar />
+          <main>{children}</main>
+          <Footer />
+        </NextAuthProvider>
       </body>
     </html>
   );
