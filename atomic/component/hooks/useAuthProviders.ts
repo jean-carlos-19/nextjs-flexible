@@ -1,4 +1,0 @@
-const useAuthProviders =()=>{
-
-}
-export {useAuthProviders}

@@ -1,29 +1,24 @@
-import './globals.css'
-import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
-import {Footer,NavBar} from '@/atomic/component'
-
-const inter = Inter({ subsets: ['latin'] })
+import "./globals.css";
+import type { Metadata } from "next";
+import { Footer, NavBar } from "@/atomic/component";
 
 export const metadata: Metadata = {
-  title: 'Flexibble',
-  description: 'Showcase and discover remarable devoloper projects.',
-}
+  title: "Flexibble",
+  description: "Discover the best cars in the world",
+};
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={"relative"}>
         <NavBar />
-        <main>
-          {children}
-        </main>
+        {children}
         <Footer />
       </body>
     </html>
-  )
+  );
 }
