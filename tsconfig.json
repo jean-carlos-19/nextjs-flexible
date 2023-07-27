@@ -28,7 +28,7 @@
       "@/atomic/component": ["./src/atomic/component"],
       "@/atomic/design": ["./src/atomic/design"],
       "@/constant/*": ["./src/constant/*"],
-      "@/lib/*": ["./lib/*"],
+      "@/lib/*": ["./src/lib/*"],
       "@/types/*": ["./src/types/*"],
     }
   },
