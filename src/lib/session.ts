@@ -1,9 +1,10 @@
 import { getServerSession } from "next-auth/next";
-import { NextAuthOptions } from "next-auth";
+import { NextAuthOptions, User } from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 import { JWT } from "next-auth/jwt";
 import jsonwebtoken from "jsonwebtoken";
-import { SessionInterface } from "@/types/common.types";
+import { SessionInterface, UserProfile } from "@/types/common.types";
+import { createUser, getUser } from '@/lib/actions'
 
 export const authOptions: NextAuthOptions = {
   providers: [
@@ -12,32 +13,65 @@ export const authOptions: NextAuthOptions = {
       clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
     }),
   ],
-  /* jwt:{
-        encode:({secret,token})=>{},
-        decode:async ({secret,token})=>{}
-    } */
+  jwt: {
+    encode: ({ secret, token }) => { 
+      const endcodedToken = jsonwebtoken.sign({
+        ...token,
+        iss:"grafbase",
+        exp:Math.floor((Date.now() / 1000) + 60 * 60)
+      },secret);
+      return endcodedToken;
+    },
+    decode: async ({ secret, token }) => {
+      const decodeToken = jsonwebtoken.verify(token!,secret)
+      return decodeToken as JWT;
+    }
+  },
   theme: {
     colorScheme: "light",
-    logo: "/logo.png",
+    logo: "/logo.svg",
   },
   callbacks: {
-    async signIn({ user }) {
+
+    async session({ session }) {
       try {
-      } catch (error) {
-        console.log(error);
+        const data = await getUser(session.user?.email as string) as { user?: UserProfile }
+        const newSession = {
+          ...session,
+          user: {
+            ...session.user,
+            ...data?.user
+          }
+        }
+        return newSession;
+      } catch (error:any) {
+        console.error("Error retrieving user data: ", error.message);
+        return session;
+      }
+    },
+
+    async signIn({ user }:{user: User}) {
+      try {
+        const userExists = await getUser(
+          user?.email as string
+        ) as { user?: UserProfile };
+
+        if (!userExists.user) {
+          await createUser(user.name as string, user.email as string, user.image as string);
+        }
+
+      } catch (error:any) {
+       console.log("Error checking if user exists: ", error.message);
         return false;
       }
       return true;
     },
-    async session({ session }) {
-      return session;
-    },
+
+   
   },
 };
 
-export async function getCurrentUser() {
+export async function getCurrentUser():Promise<SessionInterface> {
   const session = await getServerSession(authOptions);
-  console.log(session);
-
-  return session;
+  return session as SessionInterface;
 }
