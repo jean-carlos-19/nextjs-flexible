@@ -1,0 +1,1 @@
+export type {ProjectModel} from "./project.model";
