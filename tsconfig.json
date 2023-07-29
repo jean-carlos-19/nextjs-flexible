@@ -20,16 +20,17 @@
       }
     ],
     "paths": {
-      "@/controllers": ["./src/controllers"],
-      "@/models": ["./src/models"],
-      "@/services": ["./src/services"],
-      "@/views": ["./src/views"],
-      "@/atomic/element": ["./src/atomic/element"],
-      "@/atomic/component": ["./src/atomic/component"],
-      "@/atomic/design": ["./src/atomic/design"],
+      "@/controllers": ["./src/architecture/controllers"],
+      "@/models": ["./src/architecture/models"],
+      "@/services": ["./src/architecture/services"],
+      "@/atomic/element": ["./src/architecture/atomic/element"],
+      "@/atomic/component": ["./src/architecture/atomic/component"],
+      "@/atomic/design": ["./src/architecture/atomic/design"],
       "@/constant/*": ["./src/constant/*"],
       "@/lib/*": ["./src/lib/*"],
       "@/types/*": ["./src/types/*"],
+      "@/graphql": ["./graphql"],
+      "@/validation":["./src/validation"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
