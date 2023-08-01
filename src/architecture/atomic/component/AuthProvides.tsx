@@ -4,6 +4,7 @@ import React from "react";
 import { useAuthProviders } from "./hooks";
 import { Provider } from "@/types/component.types";
 import { signIn } from "next-auth/react";
+import { Button } from "../element";
 
 const AuthProvides = () => {
   const { providers } = useAuthProviders();
@@ -12,9 +13,7 @@ const AuthProvides = () => {
     return (
       <div>
         {Object.values(providers).map((provider: Provider, i: number) => (
-          <button onClick={() => signIn(provider?.id)} key={i}>
-            {provider.id}
-          </button>
+            <Button key={i} title='Sign In' handleClick={() => signIn(provider?.id)}  />
         ))}
       </div>
     );

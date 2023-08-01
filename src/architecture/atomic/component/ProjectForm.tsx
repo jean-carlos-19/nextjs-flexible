@@ -10,32 +10,33 @@ import { categoryFilters } from '@/constant/data';
 
 const ProjectForm = (props: ProjectFormProps) => {
 
-  const { type } = props;
-  const { entity } = useProjectForm();
-
+  const { type, session,project } = props;
+  const { entity,handleSend, urlImage, setUrlImage } = useProjectForm(session,project);
   return (
-    <div className='flexStart form'>
+    <>
       {
         <Formik
-
+          
+          enableReinitialize={true}
           validationSchema={projectFormValidation}
           initialValues={entity as ProjectModel}
           onSubmit={function (values: ProjectModel, formikHelpers: FormikHelpers<ProjectModel>): void | Promise<any> {
-            formikHelpers.resetForm();
             formikHelpers.setSubmitting(false);
-            console.log(values)
+            formikHelpers.resetForm();
+            handleSend(values,formikHelpers,type,urlImage!,project?.image!)
           }}>
 
           {
             (props) => {
-              const { values, isValid, handleBlur, handleChange, setFieldValue, handleSubmit } = props;
+              const { values, isValid, handleBlur, handleChange, setFieldValue, handleSubmit,setValues } = props;
               return (
-                <>
+                <div className='flexStart form'>
                   <Poster
+                    urlImage={urlImage as string}
+                    setUrlImageLocal={setUrlImage}
                     id={'image'}
                     value={values.image}
                     type={type}
-                    entity={'image'}
                     handleChange={(e: any) => {
                       setFieldValue('image', e.target.files[0])
                     }}
@@ -81,12 +82,13 @@ const ProjectForm = (props: ProjectFormProps) => {
                   />
                   <div className="flexStart w-full">
                     <Button
-                      title={!isValid ? 
+                      title={!isValid? 
                           `${type === "create" ? "Creating":"Editing"}`
                         :
                           `${type === "create" ? "Create":"Edit"}`
                       }
-                      disabled={isValid}
+                      disabled={!isValid}
+                      leftIcon={!isValid? "" : "/plus.svg"}
                       handleClick={() => {
                         handleSubmit();
                       }}
@@ -94,13 +96,13 @@ const ProjectForm = (props: ProjectFormProps) => {
                     </Button>
                   </div>
 
-                </>
+                </div>
               )
             }
           }
         </Formik>
       }
-    </div>
+    </>
   )
 }
 
