@@ -17,11 +17,11 @@ type ProjtectSearch ={
     }
 }
 
-const useProject =(category:string | null, endcursor:string | null)=>{
+const useProject =(category?:string, endcursor?:string)=>{
 
     const [data,setData]= useState<ProjtectSearch>();
     useEffect(()=>{
-        getAllProjects(category!,endcursor!)
+        getAllProjects(category,endcursor)
     },[])
 
     const getAllProjects = useCallback( async (category?:string, endcursor?:string )=>{

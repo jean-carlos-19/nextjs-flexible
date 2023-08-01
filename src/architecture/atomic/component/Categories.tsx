@@ -1,3 +1,4 @@
+"use client";
 import { categoryFilters } from '@/constant/data';
 import { useSearchParams } from 'next/navigation'
 import React from 'react'
@@ -26,7 +27,7 @@ const Categories = () => {
                         px-4 py-3 rounded-lg capitalize whitespace-nowrap
                     `}
                 >
-
+                  {filter}
                 </button>
             ))
         }

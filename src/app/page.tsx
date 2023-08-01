@@ -33,8 +33,8 @@ export default function Home({ searchParams: { category, endcursor } }: Props) {
   }
   return (
     <section className="flex-start flex-col paddings mb-16">
-      <h1> Categories </h1>
-      <section className="project-grid">
+      <Categories />
+      <section className="projects-grid">
         {
           projectsToDisplay.map(({node}:{node:ProjectInterface})=>(
             <ProjectCard 

@@ -1,3 +1,4 @@
+"use client";
 import { ProfilePage } from '@/atomic/component'
 import { getUserProjects } from '@/lib/actions'
 import { UserProfile } from '@/types/common.types'

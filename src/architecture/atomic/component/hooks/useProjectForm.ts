@@ -1,3 +1,4 @@
+"use client";
 import { useState, useCallback, useEffect } from "react";
 import { ProjectModel } from "@/models";
 import { FormikHelpers } from "formik";
@@ -27,6 +28,7 @@ const useProjectForm = (session: SessionInterface, project: ProjectInterface | u
                 category: project?.category,
                 description: project?.description,
                 githubUrl: project?.githubUrl,
+                //@ts-ignore
                 image: file,
                 liveSiteUrl: project?.liveSiteUrl
             });
