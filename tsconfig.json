@@ -23,6 +23,7 @@
       "@/controllers": ["./src/architecture/controllers"],
       "@/models": ["./src/architecture/models"],
       "@/services": ["./src/architecture/services"],
+      "@/services/http": ["./src/architecture/services/http/http.ts"],
       "@/atomic/element": ["./src/architecture/atomic/element"],
       "@/atomic/component": ["./src/architecture/atomic/component"],
       "@/atomic/design": ["./src/architecture/atomic/design"],
