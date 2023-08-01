@@ -1,15 +1,21 @@
-import { ButtonProps } from '@/types/component.types'
 import React from 'react'
+import Image from 'next/image'
+import { ButtonProps } from '@/types/component.types'
 
 const Button = (props:ButtonProps) => {
-  const {title,disabled,handleClick} = props;
+  const {title,disabled,leftIcon,rightIcon,textColor,bgColor,handleClick} = props;
   return (
     <button
-        className={`flexCenter gap-3 px-4 py-3 rounded-xl text-sm font-medium max-md:w-full  text-white ${disabled ? "bg-light-white-100 text-black/50":"bg-primary-purple text-white"}`}
-        type='button'
+        type={'button'}
         disabled={disabled}
-    >   
+        className={`flexCenter gap-3 px-4 py-3 
+        ${textColor ? textColor : 'text-white'} 
+        ${disabled ? 'bg-black/50' : bgColor ? bgColor : 'bg-primary-purple'} rounded-xl text-sm font-medium max-md:w-full`}
+        onClick={handleClick}
+    >
+        {leftIcon && <Image src={leftIcon} width={14} height={14} alt="left icon" />}
         {title}
+        {rightIcon && <Image src={rightIcon} width={14} height={14} alt="right icon" />}
     </button>
   )
 }

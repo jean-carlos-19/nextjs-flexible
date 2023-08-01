@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
 import { PosterProps } from '@/types/component.types'
-import { ErrorMessage } from 'formik';
 
 const Poster = (props: PosterProps) => {
-    const { id, entity, value, type, handleBlur, handleChange } = props;
-    const [urlImageLocal,setUrlImageLocal] = useState<string>();
+    const { id, value, type, handleBlur, handleChange,urlImage, setUrlImageLocal } = props;
     useEffect(()=>{
         if(!value ) return ;
         const reader = new FileReader();
@@ -33,7 +31,7 @@ const Poster = (props: PosterProps) => {
                 value && (
                     <Image 
                         className="sm:p-10 object-contain z-20" 
-                        src={urlImageLocal as string}
+                        src={urlImage}
                         alt='Project poster'
                         fill
                     />
