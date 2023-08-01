@@ -1,4 +1,4 @@
-import { SessionInterface } from "./common.types";
+import { ProjectInterface, SessionInterface, UserProfile } from "./common.types";
 
 interface FooterColumnProps {
   title: string;
@@ -15,58 +15,99 @@ type Provider = {
 };
 
 interface ProfileMenuProps {
-  session :  SessionInterface 
-}
-
-interface ProjectFormProps {
-  type:"create"
   session: SessionInterface
 }
 
-interface PosterProps{
-  id:string,
-  value:any,
-  type:"create"
-  entity:string,
-  disabled?:boolean,
+interface ProjectFormProps {
+  type: "create" | "edit"
+  session: SessionInterface
+  project?: ProjectInterface | undefined
+}
+
+interface PosterProps {
+  urlImage: string;
+  id: string,
+  value: any,
+  type: "create" | "edit"
+  disabled?: boolean,
+  setUrlImageLocal: (image: string) => void
   handleChange: any,
-  handleBlur:any,
+  handleBlur: any,
 }
 
-interface FormFieldProps{
-  type?:string;
-  isTextArea?:string;
-  title:string;
-  value:string | undefined;
-  placeholder:string;
-  handleChange:any;
-  handleBlur:any;
+interface FormFieldProps {
+  type?: string;
+  isTextArea?: string;
+  title: string;
+  value: string | undefined;
+  placeholder: string;
+  handleChange: any;
+  handleBlur: any;
 }
 
-interface CustomMenuProps{
-  title:string;
-  value:string | undefined;
-  filters:string[];
-  handleClick:(e:React.MouseEvent<HTMLButtonElement>)=>void
-  handleBlur:any;
+interface CustomMenuProps {
+  title: string;
+  value: string | undefined;
+  filters: string[];
+  handleClick: (e: React.MouseEvent<HTMLButtonElement>) => void
+  handleBlur: any;
 }
 
-interface ButtonProps{
-  title:string;
-  disabled:boolean;
-  children:React.ReactNode
-  handleClick:()=>void;
+interface ButtonProps {
+  title: string;
+  disabled?: boolean;
+  children?: React.ReactNode,
+  leftIcon?: string | undefined,
+  rightIcon?: string | undefined,
+  bgColor?: string,
+  textColor?: string
+  handleClick?: () => void;
+}
+
+interface ProjectCardProps {
+  id: string,
+  name: string,
+  title: string,
+  image: string,
+  avatarUrl: string
+  userId: string,
+}
+
+interface RelatedProjectsProps {
+  userId: string,
+  projectId: string,
+}
+
+interface ProjectActionsProps {
+  projectId: string;
+}
+
+interface LoadMoreProps {
+  startCursor:string | undefined
+  endCursos:string | undefined
+  hasPreviousPage:boolean | undefined
+  hasNextPage:boolean | undefined
+}
+
+interface ProfilePageProps{
+  user:UserProfile
 }
 
 type Providers = Record<string, Provider>;
-export type { 
-  FooterColumnProps, 
-  Provider, 
-  Providers, 
-  ProfileMenuProps, 
-  ProjectFormProps, 
+
+export type {
+  FooterColumnProps,
+  Provider,
+  Providers,
+  ProfileMenuProps,
+  ProjectFormProps,
   PosterProps,
   FormFieldProps,
   CustomMenuProps,
-  ButtonProps
+  ButtonProps,
+  ProjectCardProps,
+  RelatedProjectsProps,
+  ProjectActionsProps,
+  LoadMoreProps,
+  ProfilePageProps
 };
