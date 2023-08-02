@@ -22,7 +22,7 @@
 
 ## Overview
 
-![screenshot](https://raw.githubusercontent.com/jean-carlos-19/store-expo/master/assets/Cover-github.png)
+![screenshot](https://raw.githubusercontent.com/jean-carlos-19/nextjs-flexible/main/public/Cover-github.png)
 
 
 ### Built With
