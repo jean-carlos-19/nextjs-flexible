@@ -1,34 +1,76 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<!-- Please update value in the {}  -->
 
-## Getting Started
+<h1 align="center">Coffee IU App</h1>
 
-First, run the development server:
+<div align="center">
+  <h3>
+    <a href="">
+      Mobile
+    </a>
+  </h3>
+</div>
+
+
+<!-- TABLE OF CONTENTS -->
+
+## Table of Contents
+
+- [Overview](#overview)
+- [Built With](#built-with)
+- [How to use](#how-to-use)
+- [Contact](#contact)
+
+## Overview
+
+![screenshot](https://raw.githubusercontent.com/jean-carlos-19/store-expo/master/assets/Cover-github.png)
+
+
+### Built With
+
+<!-- This section should list any major frameworks that you built your project using. Here are a few examples.-->
+
+- [NextJS](https://nextjs.org/docs)
+- [Typescript](https://www.typescriptlang.org/)
+- [Yup](https://github.com/jquense/yup)
+- [Tailwind](https://www.nativewind.dev/)
+- [Formik](https://formik.org/)
+- [Grafbase](https://grafbase.com/)
+- [Graphql](https://graphql.org/learn/)
+
+## How To Use
+
+<!-- Example: -->
+
+To clone and run this application, you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [yarn](https://classic.yarnpkg.com/lang/en/docs/install/#debian-stable)) installed on your computer. From your command line:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+# Clone this repository
+$ gh repo clone jean-carlos-19/nextjs-flexible
+
+# Access to the mobile folder
+$ cd nextjs-flexible
+
+# Create environment Variables in .env file
+
+$ NEXT_PUBLIC_GRAFBASE_API_URL
+$ NEXT_PUBLIC_GRAFBASE_API_KEY
+$ GOOGLE_CLIENT_ID
+$ GOOGLE_CLIENT_SECRET
+$ NEXTAUTH_URL
+$ NEXTAUTH_SECRET
+$ CLOUDINARY_NAME
+$ CLOUDINARY_API_KEY
+$ CLOUDINARY_API_SECRECT
+
+# Install dependencies
+$ yarn install
+
+# Run the app
+$ yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Contact
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Website [piguavesoft.vercel.app](https://piguavesoft.vercel.app/)
+- GitHub [@PiguaveJean](https://github.com/jean-carlos-19)
+- PhoneNumber [+593 98 3526 509](https://wa.me/593983526509)
